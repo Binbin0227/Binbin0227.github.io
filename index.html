@@ -25,12 +25,19 @@
 
     <script type="text/babel">
         // --- 确保全局变量的访问 ---
-        const { useState, useMemo, useRef, Suspense, useEffect } = React;
-        const { Canvas, useFrame, useLoader } = R3F;
-        const { Environment, OrbitControls, ContactShadows, Image, Html } = Drei;
-        const { EffectComposer, Bloom, Vignette } = Postprocessing;
-        
-        console.log("R3F Libraries Loaded."); // 调试信息
+            const { useState, useMemo, useRef， Suspense， useEffect } = React;
+            
+            // ⭐ 关键修正: 将 R3F 替换为 ReactThreeFiber
+            const { Canvas, useFrame, useLoader } = ReactThreeFiber; 
+            
+            // ⭐ 关键修正: 将 Drei 替换为 ReactThreeDrei
+            const { Environment, OrbitControls, ContactShadows, Image, Html } = ReactThreeDrei; 
+            
+            // ⭐ 关键修正: 将 Postprocessing 替换为 Postprocessing
+            // (Postprocessing 这个名字是正确的，但我们保持一致性)
+            const { EffectComposer, Bloom, Vignette } = Postprocessing; 
+            
+            console.log("R3F Libraries Loaded."); // 调试信息
 
         // --- 1. 数学工具与配置 (Math Utilities) ---
         const TREE_HEIGHT = 10;
